@@ -7,6 +7,18 @@
   height: 40vmin;
 }
 
+.reset {
+  margin-top: 25px;
+  padding: 10px;
+  background: white;
+  border: 1px solid black;
+  font-size: calc(8px + 2vmin);
+}
+
+.reset:hover {
+  background: #DCDCDC;
+}
+
 .cell {
   width: 60px;
   height: 60px;

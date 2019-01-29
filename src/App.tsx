@@ -62,6 +62,16 @@ class App extends Component<IProps, IState> {
     })
   }
 
+  resetGame = () => {
+    this.setState({
+      board: [Player.None, Player.None, Player.None, Player.None, Player.None, Player.None, Player.None, Player.None, Player.None],
+      activePlayer: Player.One,
+      winningPlayer: null,
+      gameOngoing: true,
+      turnCounter: 0
+    })
+  }
+
   renderCell = (index: number) => {
     const { board } = this.state
     return <div className="cell" data-player={board[index]} onClick={()=>this.handleCellClick(index)}></div>
@@ -91,7 +101,8 @@ class App extends Component<IProps, IState> {
       <div className="status-box">
         { `Player 1 is blue` } <br/>
         { `Player 2 is red` } <br/>
-        {statusText}
+        {statusText} <br/>
+        {!gameOngoing && <button className="reset" onClick={this.resetGame}>Reset</button>}
       </div>
     ) 
   }
